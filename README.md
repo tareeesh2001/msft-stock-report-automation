@@ -44,5 +44,5 @@ This project includes standard Business Analyst documentation:
 
 ## Author
 Tareesh Muluguru — Business Analyst
-[LinkedIn](https://linkedin.com/in/your-profile) | 
+[LinkedIn](https://linkedin.com/in/tareesh-m) | 
 [Email](mailto:tmuluguru@gmail.com)
