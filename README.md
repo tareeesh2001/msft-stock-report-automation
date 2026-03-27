@@ -6,7 +6,7 @@ delivers it to stakeholders via Gmail every morning at 9am — including
 a link to a live Looker Studio dashboard.
 
 ## Live Dashboard
-📊 [View Live MSFT Dashboard](YOUR_LOOKER_STUDIO_LINK_HERE)
+📊 [View Live MSFT Dashboard](https://lookerstudio.google.com/s/gDdCzApSqMU)
 
 ## Business Problem
 Financial and operations teams spend significant time manually pulling 
@@ -24,7 +24,7 @@ Schedule Trigger (9am daily)
 → Gmail (delivers report + dashboard link to stakeholders)
 
 ## Sample Email Report
-![Automated Email Report](email-report.png)
+![Automated Email Report](Gmail - Daily MSFT Stock Report - 2026-03-27.pdf)
 
 ## Live Dashboard
 ![Looker Studio Dashboard](looker-dashboard.png)
@@ -57,5 +57,5 @@ This project includes standard Business Analyst documentation:
 
 ## Author
 Tareesh Muluguru — Business Analyst
-[LinkedIn](https://linkedin.com/in/your-profile) | 
+[LinkedIn](https://linkedin.com/in/tareesh-m) | 
 [Email](mailto:tmuluguru@gmail.com)
