@@ -6,7 +6,7 @@ delivers it to stakeholders via Gmail every morning at 9am — including
 a link to a live Looker Studio dashboard.
 
 ## Live Dashboard
-📊 [View Live MSFT Dashboard](https://lookerstudio.google.com/s/gDdCzApSqMU)
+📊 [View Live MSFT Dashboard](https://lookerstudio.google.com/s/uPER3TC40cs)
 
 ## Business Problem
 Financial and operations teams spend significant time manually pulling 
@@ -19,12 +19,20 @@ workflow eliminates that manual effort entirely — saving an estimated
 
 Schedule Trigger (9am daily)
 → HTTP Request (Alpha Vantage API — live MSFT stock data)
+→ IF node (validates API response is not empty)
 → OpenAI GPT-4o-mini (generates professional analyst narrative)
-→ Google Sheets (appends fresh data for dashboard)
+→ IF node (validates OpenAI response before sending)
 → Gmail (delivers report + dashboard link to stakeholders)
+→ Google Sheets (appends fresh data for dashboard)
+
+## Error Handling
+- Dedicated Error Workflow catches any node failure automatically
+- IF node validates Alpha Vantage data before calling OpenAI
+- IF node validates OpenAI response before sending email
+- Alert email sent to admin with failure details and troubleshooting steps
 
 ## Sample Email Report
-![Automated Email Report](Gmail - Daily MSFT Stock Report - 2026-03-27.pdf)
+![Automated Email Report](email-report.png)
 
 ## Live Dashboard
 ![Looker Studio Dashboard](looker-dashboard.png)
@@ -44,16 +52,21 @@ Schedule Trigger (9am daily)
 This project includes standard Business Analyst documentation:
 - Workflow process flow (as-is to to-be)
 - Business requirements: automate daily financial reporting
-- Stakeholder: Finance/Investment teams
-- ROI: ~30 min/day analyst time saved = 130+ hours/year
+- Stakeholder: Finance and Investment teams
+- ROI: 30 min/day analyst time saved = 130+ hours/year
+- Error handling: automated failure detection and admin alerts
 
 ## How to Run
 1. Import workflow.json into your n8n instance
-2. Add credentials: Alpha Vantage API key, OpenAI API key, Gmail OAuth, Google Sheets OAuth
-3. Create a Google Sheet with columns: Date, Open, High, Low, Close, Volume
+2. Add credentials: Alpha Vantage API key, OpenAI API key, 
+   Gmail OAuth, Google Sheets OAuth
+3. Create a Google Sheet with columns: Date, Open, High, 
+   Low, Close, Volume
 4. Connect your Looker Studio to that Google Sheet
-5. Update the recipient email in the Gmail node
-6. Activate the workflow
+5. Set up the Error Handler workflow and link it in settings
+6. Update the recipient email in the Gmail node
+7. Activate the workflow
+
 
 ## Author
 Tareesh Muluguru — Business Analyst
